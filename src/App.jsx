@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { Routes, Route } from 'react-router';
+import { useContext, useState, useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router';
 import NavBar from './components/NavBar/NavBar';
 import SignUpForm from './components/SignUpForm/SignUpForm';
 import SignInForm from './components/SignInForm/SignInForm';
@@ -10,20 +10,28 @@ import { UserContext } from './contexts/UserContext';
 
 
 const App = () => {  
-
   const { user } = useContext(UserContext);
 
   return (
     <>
       <NavBar />
       <Routes>
-        <Route path='/' element={user ? <Dashboard /> : <Landing /> } />
-        <Route path='/sign-up' element={<SignUpForm />} />
-        <Route path="/sign-in" element={<SignInForm />} />
+        {!user && (
+          <>
+            <Route path="/" element={<Landing />} />
+            <Route path="/sign-up" element={<SignUpForm />} />
+            <Route path="/sign-in" element={<SignInForm />} />
+          </>
+        )}
+        {user && (
+          <>
+            <Route path="/" element={<Navigate to="/skins" />} />
+            <Route path="/skins" element={<Dashboard />} />
+          </>
+        )}
       </Routes>
     </>
   );
-
 };
 
 export default App;
