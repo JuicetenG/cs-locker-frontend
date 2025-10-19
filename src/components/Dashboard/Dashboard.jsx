@@ -1,4 +1,4 @@
-import SkinsIndex from '../skinsIndex/skinsIndex';
+import SkinsIndex from '../Skins/SkinsIndex/SkinsIndex';
 
 const Dashboard = () => {
 
