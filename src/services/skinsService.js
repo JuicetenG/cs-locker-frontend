@@ -12,7 +12,18 @@ const index = async () => {
   }
 };
 
+const show = async (skinId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${skinId}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}`},
+    });
+    return res.json();
+  } catch(err) {
+    console.log(err);
+  }
+};
 
 export {
   index,
+  show,
 };
