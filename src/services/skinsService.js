@@ -12,6 +12,21 @@ const index = async () => {
   }
 };
 
+const create = async (skinData) => {
+  try {
+    const res = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify(projectFormData),
+    });
+  } catch(err) {
+    console.log(err);
+  }
+};
+
 const show = async (skinId) => {
   try {
     const res = await fetch(`${BASE_URL}/${skinId}`, {
@@ -36,6 +51,7 @@ const indexAll = async () => {
 
 export {
   index,
+  create,
   show,
   indexAll,
 };

@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import SkinCardImage from '../SkinCard/SkinCardImage/SkinCardImage';
 import SkinCardDetails from '../SkinCard/SkinCardDetails/SkinCardDetails'
-import * as skinsService from '../../../services/skinsService';
+import { index } from '../../../services/skinsService';
 
 const SkinsIndex = () => {
   const [skins, setSkins] = useState([]);
 
   useEffect(() => {
     const fetchAllSkins = async () => {
-      const skinsData = await skinsService.index();
+      const skinsData = await index();
       setSkins(skinsData);
     };
     fetchAllSkins();
