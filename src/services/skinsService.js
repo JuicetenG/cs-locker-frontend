@@ -23,7 +23,19 @@ const show = async (skinId) => {
   }
 };
 
+const indexAll = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}/weapons/data`, {
+      headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
+    });
+    return res.json();
+  } catch(err) {
+    console.log(err);
+  }
+}
+
 export {
   index,
   show,
+  indexAll,
 };
