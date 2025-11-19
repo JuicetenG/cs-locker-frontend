@@ -19,8 +19,9 @@ const create = async (skinData) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
-      body: JSON.stringify(projectFormData),
+      body: JSON.stringify(skinData),
     });
+    return res.json();
   } catch(err) {
     console.log(err);
   }
@@ -46,7 +47,7 @@ const indexAll = async () => {
   } catch(err) {
     console.log(err);
   }
-}
+};
 
 export {
   index,
