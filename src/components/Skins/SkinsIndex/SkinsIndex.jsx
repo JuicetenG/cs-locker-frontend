@@ -20,10 +20,8 @@ const SkinsIndex = () => {
     <ul className="skins-wrapper">
       {skins.map((skin) => (
         <li className="skin-box" key={skin._id}>
-          {/* <Link to={`/skins/${skin._id}`}> */}
-            <SkinCardImage skin={skin} />
-            <SkinCardDetails skin={skin} />
-          {/* </Link> */}
+          <SkinCardImage skin={skin} />
+          <SkinCardDetails skin={skin} />
         </li>
       ))}
     </ul>
