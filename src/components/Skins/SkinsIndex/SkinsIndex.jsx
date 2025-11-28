@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import SkinCardImage from '../SkinCard/SkinCardImage/SkinCardImage';
 import SkinCardDetails from '../SkinCard/SkinCardDetails/SkinCardDetails'
 import { index } from '../../../services/skinsService';
+import './SkinsIndex.css';
 
 const SkinsIndex = () => {
   const [skins, setSkins] = useState([]);
@@ -16,13 +17,13 @@ const SkinsIndex = () => {
   }, []);
 
   return (
-    <ul>
+    <ul className="skins-wrapper">
       {skins.map((skin) => (
-        <li key={skin._id}>
-          <Link to={`/skins/${skin._id}`}>
+        <li className="skin-box" key={skin._id}>
+          {/* <Link to={`/skins/${skin._id}`}> */}
             <SkinCardImage skin={skin} />
             <SkinCardDetails skin={skin} />
-          </Link>
+          {/* </Link> */}
         </li>
       ))}
     </ul>
