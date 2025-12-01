@@ -2,13 +2,23 @@
   display: grid;
   width: 1100px;
   min-height: 100vh;
-  grid-template-columns: repeat(3, 320px);
-  grid-auto-rows: 305px;
+  grid-template-columns: repeat(3, 340px);
+  grid-auto-rows: 340px;
+  gap: 10px;
+  justify-content: center; 
+  justify-items: center;    
+  align-items: center;
+  margin: 0 auto;
+  border: 2px solid blanchedalmond;
+  box-sizing: border-box;
+  padding: 0;
 }
 
 .skin-box {
-    width: 300px;
-    height: 285px;
+    width: 320px;
+    margin: 0 auto;
+    border: 2px blanchedalmond solid;
+    background-color: grey;
 }
 
 

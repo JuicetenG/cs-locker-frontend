@@ -25,11 +25,14 @@ const SkinForm = () => {
     fetchWeapons();
   }, []);
 
-  console.log(weapons);
   const safeSearch = search?.toLowerCase() || '';
   const filteredWeapons = weapons
     .filter((w) => w.name.toLowerCase().includes(safeSearch))
     .sort((a, b) => a.name.localeCompare(b.name));
+
+  const selectedWeapon = filteredWeapons.find(
+    (w) => w.name === formData.weapon
+  );
 
   console.log("filtered" + filteredWeapons);
 
@@ -57,6 +60,15 @@ const SkinForm = () => {
 
   return (
     <div className="new-skin-form-wrapper">
+      {selectedWeapon && (
+        <div className="weapon-image-wrapper">
+          <img 
+            src={selectedWeapon.image} 
+            alt={selectedWeapon.name} 
+            style={{ width: "200px", height: "auto" }} 
+          />
+        </div>
+      )}
       <form 
         className="new-skin-form"
         onSubmit={handleSubmit}>
