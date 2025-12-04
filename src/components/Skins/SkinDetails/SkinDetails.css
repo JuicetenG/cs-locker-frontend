@@ -1,0 +1,12 @@
+.details-wrapper {
+    width: 500px;
+    margin: 0 auto;
+    border: 2px blanchedalmond solid;
+    background-color: grey;
+    margin-top: 50px;
+}
+
+.details-wrapper img {
+  width: 425px;
+  height: auto;
+}
