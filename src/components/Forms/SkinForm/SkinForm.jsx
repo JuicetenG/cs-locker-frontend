@@ -1,5 +1,6 @@
 import { indexAll } from '../../../services/skinsService';
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router';
 import { create } from '../../../services/skinsService';
 
 const initialState = {
@@ -16,6 +17,8 @@ const SkinForm = () => {
     price: 0,
     float: 0.5,
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchWeapons = async () => {
@@ -34,8 +37,6 @@ const SkinForm = () => {
     (w) => w.name === formData.weapon
   );
 
-  console.log("filtered" + filteredWeapons);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -50,11 +51,11 @@ const SkinForm = () => {
     e.preventDefault();
     try {
       await create(formData);
-      console.log('Skin created:', formData);
       setFormData(initialState);
       setSearch('');
+      navigate('/skins');
     } catch (err) {
-      console.error('Failed to create skin:', err);
+      console.error('Failed to create skin: ', err);
     }
   };
 

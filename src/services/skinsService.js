@@ -3,7 +3,7 @@ const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/skins`;
 const index = async () => {
   try {
     const res = await fetch(BASE_URL, {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}`},
+      headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
     });
     return res.json();
   } catch(err) {
@@ -30,13 +30,25 @@ const create = async (skinData) => {
 const show = async (skinId) => {
   try {
     const res = await fetch(`${BASE_URL}/${skinId}`, {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}`},
+      headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
     });
     return res.json();
   } catch(err) {
     console.log(err);
   }
 };
+
+const deleteSkin = async (skinId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${skinId}`, {
+      method: 'DELETE',
+      headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+    });
+    return res.json();
+  } catch(err) {
+    console.log(err);
+  }
+}
 
 const indexAll = async () => {
   try {
@@ -54,4 +66,5 @@ export {
   create,
   show,
   indexAll,
+  deleteSkin,
 };
