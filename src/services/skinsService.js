@@ -50,6 +50,17 @@ const deleteSkin = async (skinId) => {
   }
 }
 
+const indexUser = async (userId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/user/${userId}`, {
+      headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
+    });
+    return res.json();
+  } catch(err) {
+    console.log(err);
+  }
+}
+
 const indexAll = async () => {
   try {
     const res = await fetch(`${BASE_URL}/weapons/data`, {
@@ -63,6 +74,7 @@ const indexAll = async () => {
 
 export {
   index,
+  indexUser,
   create,
   show,
   indexAll,

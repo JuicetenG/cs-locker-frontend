@@ -7,7 +7,8 @@ const SkinCardImage = ({ skin }) => {
       <Link to={`/skins/${skin._id}`}> 
         <img src={skin.weapon.image}
           className="index-image"
-          alt="index image">
+          alt="index image"
+          loading="lazy">
         </img>
       </Link>
     </section>

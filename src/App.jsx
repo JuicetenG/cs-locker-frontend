@@ -7,6 +7,7 @@ import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 import SkinDetails from './components/Skins/SkinDetails/SkinDetails';
 import SkinForm from './components/Forms/SkinForm/SkinForm';
+import SkinsIndexUser from './components/Skins/SkinsIndexUser/SkinsIndexUser';
 import './App.css';
 import { UserContext } from './contexts/UserContext';
 
@@ -30,6 +31,7 @@ const App = () => {
           <>
             <Route path="/" element={<Navigate to="/skins" />} />
             <Route path="/skins" element={<Dashboard />} />
+            <Route path="/skins/user/:userId" element={<SkinsIndexUser />} />
             <Route path="/skins/:skinId" element={<SkinDetails />} />
             <Route path="/skins/new" element={<SkinForm />} />
           </>

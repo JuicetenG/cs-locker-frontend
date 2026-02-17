@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router';
 import SkinCardImage from '../SkinCard/SkinCardImage/SkinCardImage';
 import SkinCardDetails from '../SkinCard/SkinCardDetails/SkinCardDetails'
 import { index } from '../../../services/skinsService';
